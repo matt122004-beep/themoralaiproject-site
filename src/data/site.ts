@@ -8,12 +8,12 @@ export const site = {
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 export const navigation = [
-  { href: `${base}/about`, label: "About" },
-  { href: `${base}/download`, label: "Download" },
-  { href: `${base}/research`, label: "Research" },
-  { href: `${base}/blog`, label: "Blog" },
-  { href: `${base}/support`, label: "Support" },
-  { href: `${base}/contact`, label: "Contact" },
+  { href: `${base}/about/`, label: "About" },
+  { href: `${base}/download/`, label: "Download" },
+  { href: `${base}/research/`, label: "Research" },
+  { href: `${base}/blog/`, label: "Blog" },
+  { href: `${base}/support/`, label: "Support" },
+  { href: `${base}/contact/`, label: "Contact" },
 ];
 
 export const homeHref = `${base}/`;
