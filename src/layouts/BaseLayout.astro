@@ -23,6 +23,23 @@ const pageTitle = title === site.name ? title : `${title} | ${site.name}`;
 <html lang="en" class="bg-[#0a0a0a]">
   <head>
     <SEO title={pageTitle} description={description} pathname={pathname} />
+    <script is:inline>
+      // Scroll reveal — fires on every page
+      function initReveal() {
+        const els = document.querySelectorAll('.reveal');
+        if (!els.length) return;
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add('visible');
+              io.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        els.forEach((el) => io.observe(el));
+      }
+      document.addEventListener('DOMContentLoaded', initReveal);
+    </script>
   </head>
   <body class="page-grid">
     <div class="shell flex flex-col">
