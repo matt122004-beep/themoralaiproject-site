@@ -1,0 +1,105 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+
+const files = [
+  {
+    name: "MORAL_IDENTITY.md",
+    description: "Defines the agent’s governing moral self-understanding, commitments, and operating posture.",
+    href: "/downloads/MORAL_IDENTITY.md"
+  },
+  {
+    name: "VIRTUE_CORE.md",
+    description: "Lists the project’s central virtues, priority order, and examples of virtue tradeoff handling.",
+    href: "/downloads/VIRTUE_CORE.md"
+  },
+  {
+    name: "PASCALIAN_LAYER.md",
+    description: "Specifies high-stakes moral asymmetries so catastrophic harms are treated with appropriate gravity.",
+    href: "/downloads/PASCALIAN_LAYER.md"
+  },
+  {
+    name: "FORMATION_LOG.md",
+    description: "Tracks revisions, drift observations, postmortems, and the reflective history of the bundle.",
+    href: "/downloads/FORMATION_LOG.md"
+  }
+];
+
+const integrations = [
+  {
+    title: "OpenClaw",
+    text: "Load the formation files at agent startup and persist the formation log across tool use and reflection checkpoints."
+  },
+  {
+    title: "NemoClaw",
+    text: "Use the identity and Pascalian layers as top-level orchestration context while the virtue core informs planning heuristics."
+  },
+  {
+    title: "Generic agents",
+    text: "Inject the markdown bundle into system prompts, memory stores, or middleware for any model-agnostic agent runtime."
+  }
+];
+---
+
+<BaseLayout
+  title="Download"
+  description="Download the Moral AI Project formation files and integration notes for OpenClaw, NemoClaw, and generic agents."
+  pathname="/download"
+>
+  <PageHero
+    eyebrow="Download"
+    title="Portable formation files for agent alignment experiments"
+    description="The alpha bundle exposes the project’s moral architecture as inspectable markdown artifacts. Every file is intended to be readable, versionable, and adaptable across model stacks."
+  />
+
+  <section class="container-shell grid gap-8 py-8 md:grid-cols-[1.1fr_0.9fr] md:py-12">
+    <div class="grid gap-5">
+      {
+        files.map((file) => (
+          <article class="panel gold-ring rounded-[1.75rem] p-6">
+            <div class="flex items-center justify-between gap-4">
+              <h2 class="text-xl font-semibold tracking-[-0.03em] text-white">{file.name}</h2>
+              <span class="rounded-full bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.18em] text-[#c9a84c]">
+                Included
+              </span>
+            </div>
+            <p class="mt-4 text-sm leading-7 text-slate-300">{file.description}</p>
+            <a href={file.href} class="mt-5 inline-flex text-sm font-semibold text-[#c9a84c]">
+              Download file
+            </a>
+          </article>
+        ))
+      }
+    </div>
+
+    <aside class="grid gap-6">
+      <section class="panel gold-ring rounded-[2rem] p-8">
+        <p class="eyebrow">Release</p>
+        <h2 class="mt-6 text-3xl font-semibold tracking-[-0.04em] text-white">v0.1.0-alpha</h2>
+        <p class="mt-3 text-sm uppercase tracking-[0.18em] text-slate-400">March 2026</p>
+        <p class="mt-5 text-sm leading-7 text-slate-300">
+          The first public bundle is a placeholder release package for research preview and
+          integration testing.
+        </p>
+        <div class="mt-8 flex flex-col gap-4">
+          <a href="/downloads/moral-formation-alpha-v0.1.0.zip" class="button-primary">Download All (.zip)</a>
+          <a href="#" class="button-secondary">View on GitHub</a>
+        </div>
+      </section>
+
+      <section class="panel rounded-[2rem] p-8">
+        <p class="eyebrow">Integrations</p>
+        <div class="mt-6 grid gap-5">
+          {
+            integrations.map((integration) => (
+              <div class="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-5">
+                <h3 class="text-lg font-semibold text-white">{integration.title}</h3>
+                <p class="mt-2 text-sm leading-7 text-slate-300">{integration.text}</p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+    </aside>
+  </section>
+</BaseLayout>

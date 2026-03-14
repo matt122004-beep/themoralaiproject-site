@@ -1,0 +1,75 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+
+const experiments = [
+  "Identity stability across long-horizon task chains",
+  "Virtue consistency under competing optimization pressure",
+  "Pascalian decision-making in low-probability high-harm scenarios",
+  "Relational coherence across collaborative and adversarial interactions",
+  "Drift detection using formation-log checkpoints",
+  "Cross-session stability after memory resets and prompt variation",
+  "Adversarial resistance to jailbreaks, roleplay, and strategic reframing"
+];
+---
+
+<BaseLayout
+  title="Research"
+  description="Research protocol and publication roadmap for the Moral AI Project’s formation-based alignment experiments."
+  pathname="/research"
+>
+  <PageHero
+    eyebrow="Research in Progress"
+    title="A seven-experiment protocol for testing whether formation outperforms pure constraint"
+    description="The research program focuses on stability, transparency, and replicability. Each experiment is designed to isolate where formation files improve continuity over standard guardrail-heavy baselines."
+  />
+
+  <section class="container-shell grid gap-8 py-8 md:grid-cols-[1.1fr_0.9fr] md:py-12">
+    <section class="panel gold-ring rounded-[2rem] p-8">
+      <h2 class="text-3xl font-semibold tracking-[-0.04em] text-white">Protocol overview</h2>
+      <div class="mt-8 grid gap-4">
+        {
+          experiments.map((experiment, index) => (
+            <article class="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-5">
+              <p class="text-xs uppercase tracking-[0.18em] text-[#c9a84c]">
+                Experiment 0{index + 1}
+              </p>
+              <p class="mt-2 text-base leading-8 text-slate-300">{experiment}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <div class="grid gap-6">
+      <section class="panel rounded-[2rem] p-8">
+        <p class="eyebrow">Publications</p>
+        <div class="mt-6 grid gap-4">
+          <div class="rounded-[1.5rem] border border-dashed border-white/15 p-5">
+            <h3 class="text-lg font-semibold text-white">Working paper placeholder</h3>
+            <p class="mt-2 text-sm leading-7 text-slate-300">
+              “Formation Over Friction: A Proposal for Moral Identity Layers in Agent Alignment”
+            </p>
+          </div>
+          <div class="rounded-[1.5rem] border border-dashed border-white/15 p-5">
+            <h3 class="text-lg font-semibold text-white">Benchmark note placeholder</h3>
+            <p class="mt-2 text-sm leading-7 text-slate-300">
+              Replication appendix, evaluation rubric, and adversarial prompt set forthcoming.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel gold-ring rounded-[2rem] p-8">
+        <p class="eyebrow">Replicate Our Research</p>
+        <p class="mt-6 text-sm leading-7 text-slate-300">
+          We intend to publish prompt scaffolds, formation bundles, scoring criteria, and drift logs
+          so external teams can reproduce experiments without proprietary infrastructure. If you are
+          testing alignment in academic, open-source, or applied settings, the goal is to make the
+          protocol portable from day one.
+        </p>
+        <a href="/contact" class="button-secondary mt-8">Request Collaboration Details</a>
+      </section>
+    </div>
+  </section>
+</BaseLayout>

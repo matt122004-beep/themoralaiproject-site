@@ -1,0 +1,40 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogCard from "../../components/BlogCard.astro";
+import PageHero from "../../components/PageHero.astro";
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+
+const categories = ["Theory", "Experiments", "Reflections", "News", "OpenClaw", "Agent Architecture"];
+---
+
+<BaseLayout
+  title="Blog"
+  description="Articles, research notes, and project updates from the Moral AI Project."
+  pathname="/blog"
+>
+  <PageHero
+    eyebrow="Blog"
+    title="Theory, experiments, and field notes from the Moral AI Project"
+    description="Posts are published as markdown content entries and listed in reverse chronological order."
+  />
+
+  <section class="container-shell py-8 md:py-12">
+    <div class="mb-8 flex flex-wrap gap-3">
+      {
+        categories.map((category) => (
+          <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.18em] text-slate-300">
+            {category}
+          </span>
+        ))
+      }
+    </div>
+
+    <div class="grid gap-6">
+      {posts.map((post) => <BlogCard post={post} />)}
+    </div>
+  </section>
+</BaseLayout>

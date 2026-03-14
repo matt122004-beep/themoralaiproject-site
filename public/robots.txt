@@ -1,0 +1,7 @@
+# The Moral AI Project — not yet publicly indexed
+User-agent: *
+Disallow: /
+
+# Re-enable when ready to go public:
+# User-agent: *
+# Allow: /

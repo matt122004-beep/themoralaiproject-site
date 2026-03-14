@@ -1,0 +1,76 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+
+const tiers = [
+  {
+    amount: "$5/mo",
+    name: "Reader",
+    text: "Helps cover hosting, documentation, and public research updates."
+  },
+  {
+    amount: "$25/mo",
+    name: "Research Backer",
+    text: "Supports evaluation runs, publication prep, and benchmark refinement."
+  },
+  {
+    amount: "$100/mo",
+    name: "Institutional Friend",
+    text: "Funds deeper protocol development, integration guidance, and open materials."
+  }
+];
+
+const expenses = [
+  "Site hosting, tooling, and archive access for public materials",
+  "Benchmark design, experiment logging, and replication packaging",
+  "Writing time for papers, reports, and integration documentation"
+];
+---
+
+<BaseLayout
+  title="Support"
+  description="Support the Moral AI Project through recurring donations and help fund transparent alignment research."
+  pathname="/support"
+>
+  <PageHero
+    eyebrow="Support"
+    title="Fund transparent research into formation-based AI alignment"
+    description="Donations sustain the project’s open writing, early experiments, and publication work. Payment links are placeholders pending the live launch of supporter channels."
+  />
+
+  <section class="container-shell grid gap-6 py-8 md:grid-cols-3 md:py-12">
+    {
+      tiers.map((tier) => (
+        <article class="panel gold-ring rounded-[2rem] p-8">
+          <p class="text-sm uppercase tracking-[0.18em] text-[#c9a84c]">{tier.name}</p>
+          <h2 class="mt-3 text-4xl font-semibold tracking-[-0.04em] text-white">{tier.amount}</h2>
+          <p class="mt-4 text-sm leading-7 text-slate-300">{tier.text}</p>
+          <div class="mt-8 flex flex-col gap-3">
+            <a href="#" class="button-primary">Stripe Placeholder</a>
+            <a href="#" class="button-secondary">PayPal Placeholder</a>
+            <a href="#" class="button-secondary">GitHub Sponsors Placeholder</a>
+          </div>
+        </article>
+      ))
+    }
+  </section>
+
+  <section class="container-shell pb-20 md:pb-24">
+    <div class="panel rounded-[2rem] p-8 md:p-10">
+      <p class="eyebrow">Where Your Money Goes</p>
+      <div class="mt-6 grid gap-4 md:grid-cols-3">
+        {
+          expenses.map((expense) => (
+            <div class="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-5">
+              <p class="text-sm leading-7 text-slate-300">{expense}</p>
+            </div>
+          ))
+        }
+      </div>
+      <p class="mt-6 max-w-3xl text-sm leading-7 text-slate-400">
+        Transparency matters. As the project formalizes support channels, this section can be
+        expanded with budget updates, grant disclosures, and publication milestones.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

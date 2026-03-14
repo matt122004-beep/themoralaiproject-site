@@ -1,0 +1,21 @@
+---
+import { navigation, site } from "../data/site";
+---
+
+<footer class="border-t border-white/10 py-12">
+  <div class="container-shell grid gap-10 md:grid-cols-[1.2fr_0.8fr]">
+    <div>
+      <p class="eyebrow">The Moral AI Project</p>
+      <h2 class="mt-4 text-2xl font-semibold tracking-[-0.03em] text-white">{site.tagline}</h2>
+      <p class="mt-4 max-w-2xl text-sm leading-7 text-slate-300">
+        Lightweight formation files, transparent research, and practical alignment experiments for
+        agent systems that need durable moral identity rather than brittle constraints.
+      </p>
+    </div>
+    <div class="grid gap-2 text-sm text-slate-300 md:justify-items-end">
+      {navigation.map((item) => <a href={item.href} class="transition hover:text-white">{item.label}</a>)}
+      <a href="/rss.xml" class="transition hover:text-white">RSS</a>
+      <p class="mt-4 text-xs text-slate-500">© 2026 The Moral AI Project. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,73 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+---
+
+<BaseLayout
+  title="Contact"
+  description="Contact the Moral AI Project about research collaboration, media inquiries, integrations, or general questions."
+  pathname="/contact"
+>
+  <PageHero
+    eyebrow="Contact"
+    title="Start a conversation about research, integration, or support"
+    description="This static contact form is a placeholder for the project’s future inbound workflow. It can be connected later to any preferred form endpoint."
+  />
+
+  <section class="container-shell pb-20 md:pb-24">
+    <div class="panel gold-ring mx-auto max-w-3xl rounded-[2rem] p-8 md:p-10">
+      <form class="grid gap-5">
+        <div class="grid gap-5 md:grid-cols-2">
+          <label class="grid gap-2 text-sm text-slate-300">
+            Name
+            <input
+              type="text"
+              name="name"
+              class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none ring-0 placeholder:text-slate-500"
+              placeholder="Your name"
+            />
+          </label>
+          <label class="grid gap-2 text-sm text-slate-300">
+            Email
+            <input
+              type="email"
+              name="email"
+              class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none ring-0 placeholder:text-slate-500"
+              placeholder="you@example.com"
+            />
+          </label>
+        </div>
+
+        <label class="grid gap-2 text-sm text-slate-300">
+          Category
+          <select
+            name="category"
+            class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none"
+          >
+            <option>Research Collaboration</option>
+            <option>Media Inquiry</option>
+            <option>Integration Help</option>
+            <option>General</option>
+          </select>
+        </label>
+
+        <label class="grid gap-2 text-sm text-slate-300">
+          Message
+          <textarea
+            name="message"
+            rows="7"
+            class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none placeholder:text-slate-500"
+            placeholder="Tell us what you’re working on or what you need."
+          ></textarea>
+        </label>
+
+        <div class="flex flex-col items-start gap-3">
+          <button type="submit" class="button-primary">Send Message</button>
+          <p class="text-xs leading-6 text-slate-500">
+            Placeholder form only. No message delivery is configured in this static build.
+          </p>
+        </div>
+      </form>
+    </div>
+  </section>
+</BaseLayout>

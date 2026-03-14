@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Page Not Found"
+  description="The page you requested could not be found on The Moral AI Project."
+  pathname="/404"
+>
+  <section class="container-shell flex min-h-[70vh] items-center justify-center py-16">
+    <div class="panel gold-ring max-w-2xl rounded-[2rem] p-10 text-center">
+      <p class="eyebrow justify-center">404</p>
+      <h1 class="section-title mt-6">This page is outside the current moral topology.</h1>
+      <p class="mt-6 text-base leading-8 text-slate-300">
+        The route does not exist in this static build. Return to the homepage or continue through
+        the primary site navigation.
+      </p>
+      <a href="/" class="button-primary mt-8">Return Home</a>
+    </div>
+  </section>
+</BaseLayout>
