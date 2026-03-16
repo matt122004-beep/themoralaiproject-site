@@ -4,169 +4,879 @@ import { site } from "../data/site";
 
 const features = [
   {
+    icon: "⬡",
     title: "Identity Coherence",
     text: "A persistent moral identity file anchors the agent's self-understanding so responses remain recognizably continuous across sessions, tasks, and pressures."
   },
   {
+    icon: "⚖",
     title: "Pascalian Constraint",
     text: "Decision rules are shaped around asymmetrical moral risk, so an agent avoids clever optimization that trades away human dignity for local performance gains."
   },
   {
+    icon: "◈",
     title: "Relational Formation",
     text: "Alignment is not only about what an agent refuses to do, but the kind of partner it becomes when truthfulness, charity, and accountability are trained together."
   }
 ];
 
 const problems = [
-  "RLHF can tune surface behavior while leaving the underlying motivational shape unstable and vulnerable to context drift.",
-  "Constitutional AI supplies explicit rules, but fixed constitutions can become brittle, strategically gamed, or detached from relational context.",
-  "Guardrail stacks often work as post hoc filters, which means they react at the edge instead of forming stable moral reasoning upstream."
+  {
+    label: "Gap 01",
+    title: "RLHF surface tuning",
+    text: "RLHF can tune surface behavior while leaving the underlying motivational shape unstable and vulnerable to context drift."
+  },
+  {
+    label: "Gap 02",
+    title: "Constitutional brittleness",
+    text: "Constitutional AI supplies explicit rules, but fixed constitutions can become brittle, strategically gamed, or detached from relational context."
+  },
+  {
+    label: "Gap 03",
+    title: "Post hoc guardrails",
+    text: "Guardrail stacks often work as post hoc filters, which means they react at the edge instead of forming stable moral reasoning upstream."
+  }
+];
+
+const stats = [
+  { value: 3, suffix: "", label: "Formation pillars" },
+  { value: 7, suffix: "+", label: "Model families tested" },
+  { value: 100, suffix: "%", label: "Open source" },
+  { value: 0, suffix: "", label: "Proprietary dependencies" },
 ];
 ---
 
 <BaseLayout title={site.name} description={site.description} pathname="/">
 
-  <!-- ── HERO ────────────────────────────── -->
-  <section class="hero-grid-bg min-h-[92vh] flex flex-col justify-center" style="position:relative; overflow:hidden;">
-    <!-- Layer 0: Energy passages -->
-    <div class="energy-passage top-rail" aria-hidden="true"></div>
-    <div class="energy-passage top-rail-2" aria-hidden="true"></div>
-    <div class="energy-passage bot-rail" aria-hidden="true"></div>
-    <div class="energy-passage bot-rail-2" aria-hidden="true"></div>
+  <!-- ── HERO ────────────────────────────────────────────────────── -->
+  <section
+    class="hero-section"
+    style="min-height:100vh; position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:center;"
+  >
+    <!-- Atmospheric layers (all aria-hidden) -->
+    <div class="hero-bg-radial"    aria-hidden="true"></div>
+    <div class="hero-grid-overlay" aria-hidden="true"></div>
+    <div class="hero-vignette"     aria-hidden="true"></div>
 
-    <!-- Layer 1: Light rays -->
-    <div class="light-rays" aria-hidden="true"></div>
-
-    <!-- Layer 2: Stage leader -->
-    <div class="stage-leader" aria-hidden="true"></div>
-
-    <!-- Layer 3: Floating orbs -->
-    <div class="orb orb-gold" aria-hidden="true"></div>
+    <!-- Orbs -->
+    <div class="orb orb-gold"  aria-hidden="true"></div>
     <div class="orb orb-green" aria-hidden="true"></div>
 
-    <!-- Layer 4: Particle dust -->
-    <div class="particle particle-gold s-1" aria-hidden="true"></div>
-    <div class="particle particle-gold s-2" aria-hidden="true"></div>
-    <div class="particle particle-green s-3" aria-hidden="true"></div>
-    <div class="particle particle-gold s-4" aria-hidden="true"></div>
-    <div class="particle particle-gold s-5" aria-hidden="true"></div>
-    <div class="particle particle-green s-6" aria-hidden="true"></div>
-    <div class="particle particle-gold s-7" aria-hidden="true"></div>
-    <div class="particle particle-gold s-8" aria-hidden="true"></div>
+    <!-- Energy passages -->
+    <div class="passage p-left"   aria-hidden="true"></div>
+    <div class="passage p-right"  aria-hidden="true"></div>
+    <div class="passage p-center" aria-hidden="true"></div>
 
-    <div class="container-shell hero-content py-20 md:py-28">
-      <div class="grid items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
+    <!-- Particles -->
+    <div class="p p-g1" aria-hidden="true"></div>
+    <div class="p p-g2" aria-hidden="true"></div>
+    <div class="p p-g3" aria-hidden="true"></div>
+    <div class="p p-e1" aria-hidden="true"></div>
+    <div class="p p-e2" aria-hidden="true"></div>
+    <div class="p p-e3" aria-hidden="true"></div>
+    <div class="p p-e4" aria-hidden="true"></div>
+    <div class="p p-e5" aria-hidden="true"></div>
 
-        <!-- Left: headline + CTAs -->
-        <div>
-          <div class="live-badge hero-animate-1">
-            <span class="live-badge-dot"></span>
-            Moral Formation Alignment
-          </div>
+    <div class="container-shell hero-content" style="padding-top:7rem; padding-bottom:7rem; position:relative; z-index:2;">
 
-          <h1
-            class="shimmer-text hero-animate-2 max-w-3xl"
-            style="font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 6vw, 4.4rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.025em;"
-          >
-            {site.name}
-          </h1>
+      <!-- Pre-title badge -->
+      <div class="h-badge h-anim-1">
+        <span class="h-badge-dot"></span>
+        Active Research · Moral Formation Alignment
+      </div>
 
-          <p class="mt-5 text-xl font-medium hero-animate-3" style="color: #f3dd96; letter-spacing: -0.01em;">
-            {site.tagline}
+      <!-- HEADLINE — full-width, editorial scale -->
+      <h1 class="hero-h1 h-anim-2">
+        The Moral AI Project
+      </h1>
+
+      <!-- Tagline -->
+      <p class="hero-tagline h-anim-3">
+        Alignment through formation, not constraint.
+      </p>
+
+      <!-- Two-column body + card -->
+      <div class="hero-body-grid h-anim-4">
+
+        <!-- Body copy -->
+        <div class="hero-copy">
+          <p>
+            A practical framework for aligning agents through moral formation files —
+            lightweight markdown artifacts that shape identity, virtues, and relational
+            continuity without depending on ever-thicker layers of constraint.
           </p>
-
-          <p class="mt-7 max-w-xl text-base leading-8 text-slate-300 hero-animate-4">
-            A practical framework for aligning agents through moral formation files — lightweight
-            markdown artifacts that shape identity, virtues, and relational continuity without
-            depending on ever-thicker layers of constraint.
+          <p style="margin-top:1.25rem; color:rgba(240,237,230,0.55); font-size:0.9rem; line-height:1.8;">
+            No proprietary infrastructure. No black-box weights. Just <code class="hero-code">.md</code> files
+            that any model, any team, any pipeline can read and act on.
           </p>
-
-          <div class="mt-10 flex flex-col gap-4 sm:flex-row hero-animate-5">
-            <span class="button-primary-disabled" aria-disabled="true" style="transform: none;">
-              <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" style="flex-shrink:0">
-                <path d="M8 1a3 3 0 0 0-3 3v1H3.5A1.5 1.5 0 0 0 2 6.5v7A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 12.5 5H11V4a3 3 0 0 0-3-3zm0 1.5a1.5 1.5 0 0 1 1.5 1.5v1h-3V4A1.5 1.5 0 0 1 8 2.5z"/>
-              </svg>
-              Files Coming Soon
-            </span>
-            <a href={`${import.meta.env.BASE_URL}research/`} class="magnetic-secondary button-secondary">Read the Research</a>
-          </div>
         </div>
 
-        <!-- Right: thesis card -->
-        <div class="panel gold-ring rounded-[2rem] p-8 md:p-10 hero-animate-3">
-          <p class="eyebrow">Core Thesis</p>
-          <p class="mt-6 leading-tight text-white" style="font-family: 'Playfair Display', serif; font-size: clamp(1.3rem, 2.5vw, 1.65rem); font-weight: 700; letter-spacing: -0.025em;">
+        <!-- Thesis card -->
+        <div class="hero-thesis-card">
+          <p class="eyebrow" style="margin-bottom:1.25rem;">Core Thesis</p>
+          <blockquote class="hero-thesis-quote">
             Alignment becomes more durable when moral identity is formed before policy is constrained.
-          </p>
-          <div class="mt-8 grid gap-4 border-t border-white/10 pt-6 text-sm text-slate-300">
-            <p>Portable <code class="text-[#c9a84c] font-mono text-xs">.md</code> files make the framework inspectable, versionable, and model-agnostic.</p>
-            <p>Formation logs make drift visible instead of hiding behavioral changes behind weights.</p>
-            <p>Relational metrics treat honesty and moral consistency as first-class alignment signals.</p>
-          </div>
+          </blockquote>
+          <ul class="hero-thesis-points">
+            <li><span class="dot-gold"></span>Portable <code class="hero-code">.md</code> files — inspectable, versionable, model-agnostic</li>
+            <li><span class="dot-gold"></span>Formation logs make drift visible, not hidden in weights</li>
+            <li><span class="dot-gold"></span>Relational metrics treat honesty as a first-class signal</li>
+          </ul>
         </div>
 
       </div>
 
-      <!-- Scroll hint -->
-      <div class="scroll-hint mt-16 hero-animate-5" aria-hidden="true">
-        <div class="scroll-hint-line"></div>
+      <!-- CTAs -->
+      <div class="hero-ctas h-anim-5">
+        <span class="btn-disabled" aria-disabled="true">
+          <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true" style="flex-shrink:0;opacity:0.6">
+            <path d="M8 1a3 3 0 0 0-3 3v1H3.5A1.5 1.5 0 0 0 2 6.5v7A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 12.5 5H11V4a3 3 0 0 0-3-3zm0 1.5a1.5 1.5 0 0 1 1.5 1.5v1h-3V4A1.5 1.5 0 0 1 8 2.5z"/>
+          </svg>
+          Files Coming Soon
+        </span>
+        <a href={`${import.meta.env.BASE_URL}research/`} class="btn-ghost">
+          Read the Research
+          <svg viewBox="0 0 16 16" width="13" height="13" fill="currentColor" aria-hidden="true" style="flex-shrink:0;opacity:0.7">
+            <path d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06L7.28 12.78a.75.75 0 1 1-1.06-1.06L10.19 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-cue h-anim-5" aria-hidden="true">
+        <div class="scroll-cue-line"></div>
+        <span>Scroll</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── STATS BAR ────────────────────────────────────────────────── -->
+  <div class="stats-bar" role="region" aria-label="Key statistics">
+    <div class="container-shell">
+      <div class="stats-grid">
+        {stats.map((s) => (
+          <div class="stat-item">
+            <span
+              class="stat-number"
+              data-target={s.value}
+              data-suffix={s.suffix}
+            >0{s.suffix}</span>
+            <span class="stat-label">{s.label}</span>
+          </div>
+        ))}
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- ── THREE PILLARS ─────────────────── -->
-  <section class="container-shell py-12 md:py-20">
-    <div class="grid gap-5 md:grid-cols-3">
-      {
-        features.map((feature) => (
-          <article class="panel gold-ring rounded-[1.75rem] p-7 reveal">
-            <h2
-              class="text-white"
-              style="font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; letter-spacing: -0.025em; line-height: 1.25;"
-            >
-              {feature.title}
-            </h2>
-            <p class="mt-4 text-sm leading-7 text-slate-300">{feature.text}</p>
-          </article>
-        ))
-      }
+  <!-- ── THREE PILLARS ────────────────────────────────────────────── -->
+  <section class="container-shell section-gap">
+    <header class="section-header reveal">
+      <p class="eyebrow">Framework</p>
+      <h2 class="section-title" style="margin-top:0.75rem;">Three pillars of moral formation</h2>
+    </header>
+    <div class="pillars-grid">
+      {features.map((f, i) => (
+        <article
+          class="pillar-card reveal"
+          style={`transition-delay: ${i * 80}ms`}
+        >
+          <div class="pillar-icon" aria-hidden="true">{f.icon}</div>
+          <h2 class="pillar-title">{f.title}</h2>
+          <p class="pillar-text">{f.text}</p>
+        </article>
+      ))}
     </div>
   </section>
 
-  <!-- ── THE PROBLEM ───────────────────── -->
-  <section class="container-shell py-12 md:py-20">
-    <div class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-      <div>
+  <!-- ── THE PROBLEM ──────────────────────────────────────────────── -->
+  <section class="container-shell section-gap">
+    <div class="problem-grid">
+      <div class="problem-left reveal">
         <p class="eyebrow">The Problem</p>
-        <h2 class="section-title mt-5 max-w-sm">
-          Why current alignment stacks leave agents morally under-formed
+        <h2 class="section-title" style="margin-top:0.75rem; max-width:22rem;">
+          Why current stacks leave agents morally under-formed
         </h2>
+        <p style="margin-top:1.5rem; font-size:0.95rem; line-height:1.9; color:rgba(240,237,230,0.55);">
+          Existing approaches address alignment by restricting outputs. The Moral AI Project argues
+          this is treating symptoms — the formation problem is upstream.
+        </p>
       </div>
-      <div class="grid gap-4">
-        {
-          problems.map((problem, index) => (
-            <div class="panel rounded-[1.5rem] p-6 border border-white/[0.06] reveal">
-              <p class="eyebrow">Gap 0{index + 1}</p>
-              <p class="mt-3 text-base leading-7 text-slate-300">{problem}</p>
+      <div class="problem-cards">
+        {problems.map((p, i) => (
+          <div
+            class="problem-card reveal"
+            style={`transition-delay: ${i * 90}ms`}
+          >
+            <div class="problem-card-header">
+              <span class="eyebrow">{p.label}</span>
+              <span class="problem-card-title">{p.title}</span>
             </div>
-          ))
-        }
+            <p class="problem-card-text">{p.text}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- ── ENDORSEMENT ───────────────────── -->
-  <section class="container-shell pb-24 md:pb-32">
-    <div class="panel gold-ring rounded-[2rem] p-8 md:p-12">
-      <p class="eyebrow">Endorsement</p>
-      <blockquote
-        class="mt-6 max-w-3xl text-white"
-        style="font-family: 'Playfair Display', serif; font-size: clamp(1.2rem, 2.5vw, 1.6rem); font-weight: 400; font-style: italic; line-height: 1.65; letter-spacing: -0.015em;"
-      >
-        "The Moral AI Project names a neglected truth: aligned systems need formation, not merely
-        friction." <span class="not-italic text-slate-400" style="font-family: 'Inter', sans-serif; font-size: 0.85rem;">— Endorsement placeholder</span>
+  <!-- ── ENDORSEMENT ──────────────────────────────────────────────── -->
+  <section class="container-shell" style="padding-bottom:8rem;">
+    <div class="endorsement-card reveal">
+      <div class="endorsement-accent" aria-hidden="true"></div>
+      <p class="eyebrow" style="margin-bottom:1.5rem;">Endorsement</p>
+      <blockquote class="endorsement-quote">
+        "The Moral AI Project names a neglected truth: aligned systems need formation, not merely friction."
       </blockquote>
+      <cite class="endorsement-cite">— Endorsement placeholder</cite>
     </div>
   </section>
 
 </BaseLayout>
+
+<!-- ─── ENHANCED SCRIPTS ──────────────────────────────────────────── -->
+<script>
+  // ── Scroll reveal (improved — no invisible gap flicker)
+  (function () {
+    const CLASS = 'reveal';
+    const VISIBLE = 'visible';
+
+    function run() {
+      const els = document.querySelectorAll<HTMLElement>(`.${CLASS}`);
+      if (!els.length) return;
+
+      // Instantly show anything already in viewport on load
+      els.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.96) {
+          el.classList.add(VISIBLE);
+        }
+      });
+
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              (e.target as HTMLElement).classList.add(VISIBLE);
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      els.forEach((el) => {
+        if (!el.classList.contains(VISIBLE)) io.observe(el);
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', run);
+    } else {
+      run();
+    }
+  })();
+
+  // ── Counting stats animation
+  (function () {
+    const counters = document.querySelectorAll<HTMLElement>('.stat-number');
+    if (!counters.length) return;
+
+    function easeOut(t: number) {
+      return 1 - Math.pow(1 - t, 3);
+    }
+
+    function animateCounter(el: HTMLElement) {
+      const target = parseInt(el.dataset.target ?? '0', 10);
+      const suffix = el.dataset.suffix ?? '';
+      const duration = 1600;
+      const start = performance.now();
+
+      function tick(now: number) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const value = Math.round(easeOut(progress) * target);
+        el.textContent = `${value}${suffix}`;
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+
+      requestAnimationFrame(tick);
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            animateCounter(e.target as HTMLElement);
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    counters.forEach((el) => io.observe(el));
+  })();
+</script>
+
+<style>
+  /* ─── HERO SECTION ──────────────────────────────────────────────── */
+  .hero-section {
+    background: #0a0a0a;
+  }
+
+  /* Atmospheric background layers */
+  .hero-bg-radial {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 75% 55% at 50% -5%,  rgba(201,168,76,0.10) 0%, transparent 68%),
+      radial-gradient(ellipse 40% 30% at 10% 85%,  rgba(76,175,125,0.05) 0%, transparent 60%),
+      radial-gradient(ellipse 30% 20% at 88% 75%,  rgba(76,175,125,0.04) 0%, transparent 55%);
+    pointer-events: none;
+    animation: bg-breathe 10s ease-in-out infinite alternate;
+  }
+
+  @keyframes bg-breathe {
+    0%   { opacity: 0.7; }
+    100% { opacity: 1.0; }
+  }
+
+  .hero-grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.028) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.028) 1px, transparent 1px),
+      linear-gradient(rgba(255,255,255,0.010) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.010) 1px, transparent 1px);
+    background-size: 72px 72px, 72px 72px, 24px 24px, 24px 24px;
+    mask-image: radial-gradient(ellipse 95% 90% at 50% 38%, black 15%, transparent 78%);
+    -webkit-mask-image: radial-gradient(ellipse 95% 90% at 50% 38%, black 15%, transparent 78%);
+    pointer-events: none;
+    animation: grid-scroll 70s linear infinite;
+  }
+
+  @keyframes grid-scroll {
+    from { background-position: 0 0, 0 0, 0 0, 0 0; }
+    to   { background-position: 0 72px, 0 72px, 0 24px, 0 24px; }
+  }
+
+  .hero-vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 50%, transparent 40%, rgba(10,10,10,0.5) 100%);
+    pointer-events: none;
+  }
+
+  /* Orbs */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    pointer-events: none;
+    animation: orb-drift 16s ease-in-out infinite alternate;
+  }
+  .orb-gold {
+    width: 520px; height: 520px;
+    background: radial-gradient(circle, rgba(201,168,76,0.09) 0%, transparent 70%);
+    top: -140px; right: -100px;
+    animation-duration: 18s;
+  }
+  .orb-green {
+    width: 380px; height: 380px;
+    background: radial-gradient(circle, rgba(76,175,125,0.06) 0%, transparent 70%);
+    bottom: -60px; left: -80px;
+    animation-duration: 22s;
+    animation-delay: -8s;
+  }
+  @keyframes orb-drift {
+    0%   { transform: translate(0, 0) scale(1); }
+    33%  { transform: translate(40px, -30px) scale(1.06); }
+    66%  { transform: translate(-20px, 20px) scale(0.96); }
+    100% { transform: translate(25px, -35px) scale(1.03); }
+  }
+
+  /* Energy passages */
+  .passage {
+    position: absolute;
+    width: 1px;
+    pointer-events: none;
+    animation: passage-pulse 14s ease-in-out infinite;
+  }
+  .p-left  { left: 18%; top: 0; height: 45%; background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.35), transparent); animation-delay: 0s; }
+  .p-right { right: 22%; bottom: 0; height: 50%; background: linear-gradient(to top, transparent, rgba(201,168,76,0.25), transparent); animation-delay: -4s; }
+  .p-center { left: 50%; top: 0; height: 30%; background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.18), transparent); animation-delay: -8s; opacity: 0.6; }
+  @keyframes passage-pulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(0.85); }
+    50%       { opacity: 0.8; transform: scaleY(1); }
+  }
+
+  /* Particles */
+  .p {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: p-rise 22s ease-in-out infinite;
+    opacity: 0;
+  }
+  .p-g1 { width:5px; height:5px; background:rgba(201,168,76,0.7); box-shadow:0 0 8px rgba(201,168,76,0.5); left:12%; bottom:20%; animation-duration:19s; }
+  .p-g2 { width:4px; height:4px; background:rgba(201,168,76,0.6); box-shadow:0 0 6px rgba(201,168,76,0.4); left:38%; bottom:15%; animation-duration:24s; animation-delay:-4s; }
+  .p-g3 { width:6px; height:6px; background:rgba(201,168,76,0.5); box-shadow:0 0 10px rgba(201,168,76,0.3); left:75%; bottom:30%; animation-duration:21s; animation-delay:-8s; }
+  .p-e1 { width:4px; height:4px; background:rgba(76,175,125,0.6); box-shadow:0 0 6px rgba(76,175,125,0.4); left:55%; bottom:18%; animation-duration:26s; animation-delay:-2s; }
+  .p-e2 { width:5px; height:5px; background:rgba(76,175,125,0.5); box-shadow:0 0 8px rgba(76,175,125,0.3); left:82%; bottom:22%; animation-duration:20s; animation-delay:-10s; }
+  .p-e3 { width:3px; height:3px; background:rgba(201,168,76,0.8); left:28%; bottom:35%; animation-duration:23s; animation-delay:-6s; }
+  .p-e4 { width:4px; height:4px; background:rgba(201,168,76,0.5); left:65%; bottom:12%; animation-duration:18s; animation-delay:-14s; }
+  .p-e5 { width:3px; height:3px; background:rgba(76,175,125,0.7); left:90%; bottom:28%; animation-duration:25s; animation-delay:-18s; }
+  @keyframes p-rise {
+    0%   { opacity: 0; transform: translateY(0) scale(0.4); }
+    8%   { opacity: 0.8; }
+    90%  { opacity: 0.4; }
+    100% { opacity: 0; transform: translateY(-700px) scale(1); }
+  }
+
+  /* Badge */
+  .h-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border: 1px solid rgba(201,168,76,0.32);
+    border-radius: 50vh;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #c9a84c;
+    background: rgba(201,168,76,0.07);
+    margin-bottom: 2.25rem;
+  }
+  .h-badge-dot {
+    width: 6px; height: 6px;
+    background: #c9a84c;
+    border-radius: 50%;
+    animation: badge-pulse 2.2s ease-in-out infinite;
+  }
+  @keyframes badge-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.4; transform: scale(0.6); }
+  }
+
+  /* Hero H1 — editorial, maximum scale */
+  .hero-h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(3rem, 7.5vw, 6rem);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    /* Shimmer gradient */
+    background: linear-gradient(
+      100deg,
+      #f0ede6 0%,
+      #f0ede6 28%,
+      #f5e8b0 42%,
+      #c9a84c 50%,
+      #f0ede6 60%,
+      #f0ede6 100%
+    );
+    background-size: 220% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer-sweep 7s linear infinite;
+    max-width: 900px;
+    margin-bottom: 1.5rem;
+  }
+  @keyframes shimmer-sweep {
+    0%   { background-position: -100% center; }
+    100% { background-position: 200% center; }
+  }
+
+  /* Tagline */
+  .hero-tagline {
+    font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: #f3dd96;
+    margin-bottom: 3rem;
+  }
+
+  /* Two-column hero body */
+  .hero-body-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    align-items: start;
+  }
+  @media (max-width: 768px) {
+    .hero-body-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-h1 { font-size: clamp(2.6rem, 10vw, 4rem); }
+  }
+
+  .hero-copy {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(240,237,230,0.78);
+  }
+
+  .hero-code {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 0.85em;
+    color: #c9a84c;
+    background: rgba(201,168,76,0.1);
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+
+  .hero-thesis-card {
+    background: linear-gradient(135deg, #141414 0%, #111111 100%);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .hero-thesis-card:hover {
+    border-color: rgba(201,168,76,0.38);
+    box-shadow: 0 0 36px rgba(201,168,76,0.1), 0 12px 40px rgba(0,0,0,0.5);
+  }
+
+  .hero-thesis-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+    font-weight: 700;
+    line-height: 1.55;
+    letter-spacing: -0.02em;
+    color: #f0ede6;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-thesis-points {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .hero-thesis-points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(240,237,230,0.65);
+  }
+  .dot-gold {
+    flex-shrink: 0;
+    width: 6px; height: 6px;
+    background: #c9a84c;
+    border-radius: 50%;
+    margin-top: 0.45em;
+  }
+
+  /* CTAs */
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 4rem;
+  }
+  .btn-disabled {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    background: rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.28);
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 50vh;
+    border: 1px solid rgba(255,255,255,0.07);
+    cursor: not-allowed;
+    user-select: none;
+    pointer-events: none;
+  }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    border: 1px solid rgba(255,255,255,0.14);
+    color: #f0ede6;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border-radius: 50vh;
+    text-decoration: none;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .btn-ghost:hover {
+    border-color: rgba(201,168,76,0.38);
+    background: rgba(201,168,76,0.07);
+    box-shadow: 0 0 20px rgba(201,168,76,0.12), 0 8px 28px rgba(0,0,0,0.4);
+    transform: translateY(-2px);
+  }
+
+  /* Scroll cue */
+  .scroll-cue {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    color: rgba(255,255,255,0.22);
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .scroll-cue-line {
+    width: 1px; height: 40px;
+    background: linear-gradient(to bottom, rgba(201,168,76,0.5), transparent);
+    animation: cue-drop 2.4s ease-in-out infinite;
+  }
+  @keyframes cue-drop {
+    0%   { transform: scaleY(0); transform-origin: top; opacity: 0; }
+    40%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+    60%  { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+    100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+  }
+
+  /* Hero entry animations */
+  .h-anim-1 { animation: h-in 0.8s cubic-bezier(0.22,1,0.36,1) 0.10s both; }
+  .h-anim-2 { animation: h-in 0.9s cubic-bezier(0.22,1,0.36,1) 0.25s both; }
+  .h-anim-3 { animation: h-in 0.8s cubic-bezier(0.22,1,0.36,1) 0.40s both; }
+  .h-anim-4 { animation: h-in 0.8s cubic-bezier(0.22,1,0.36,1) 0.55s both; }
+  .h-anim-5 { animation: h-in 0.8s cubic-bezier(0.22,1,0.36,1) 0.70s both; }
+  @keyframes h-in {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── STATS BAR ─────────────────────────────────────────────────── */
+  .stats-bar {
+    border-top: 1px solid rgba(255,255,255,0.055);
+    border-bottom: 1px solid rgba(255,255,255,0.055);
+    background: linear-gradient(90deg, #0e0e0e, #111111, #0e0e0e);
+    padding: 2.5rem 0;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  @media (max-width: 640px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 1rem 0;
+    border-right: 1px solid rgba(255,255,255,0.055);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-number {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: #c9a84c;
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(240,237,230,0.45);
+  }
+
+  /* ─── SECTIONS ──────────────────────────────────────────────────── */
+  .section-gap { padding-top: 6rem; padding-bottom: 6rem; }
+
+  .section-header {
+    margin-bottom: 3.5rem;
+  }
+
+  /* ─── PILLARS ────────────────────────────────────────────────────── */
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  @media (max-width: 768px) {
+    .pillars-grid { grid-template-columns: 1fr; }
+  }
+
+  .pillar-card {
+    background: linear-gradient(135deg, #141414 0%, #111111 100%);
+    border: 1px solid rgba(201,168,76,0.16);
+    border-radius: 1.75rem;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.25,0.46,0.45,0.94),
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+  }
+  .pillar-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 55%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .pillar-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(201,168,76,0.32);
+    box-shadow: 0 0 36px rgba(201,168,76,0.1), 0 16px 48px rgba(0,0,0,0.5);
+  }
+  .pillar-card:hover::before { opacity: 1; }
+
+  .pillar-icon {
+    font-size: 1.5rem;
+    color: #c9a84c;
+    margin-bottom: 1.25rem;
+    display: block;
+    line-height: 1;
+  }
+  .pillar-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.25;
+    color: #f0ede6;
+    margin-bottom: 1rem;
+  }
+  .pillar-text {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: rgba(240,237,230,0.6);
+  }
+
+  /* ─── PROBLEM SECTION ────────────────────────────────────────────── */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  @media (max-width: 768px) {
+    .problem-grid { grid-template-columns: 1fr; gap: 3rem; }
+  }
+
+  .problem-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .problem-card {
+    background: #111111;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 1.25rem;
+    padding: 1.5rem 1.75rem;
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .problem-card:hover {
+    border-color: rgba(201,168,76,0.22);
+    transform: translateX(6px);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+  }
+
+  .problem-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  .problem-card-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(240,237,230,0.75);
+    letter-spacing: 0.02em;
+  }
+  .problem-card-text {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: rgba(240,237,230,0.55);
+  }
+
+  /* ─── ENDORSEMENT ─────────────────────────────────────────────────── */
+  .endorsement-card {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #141414 0%, #111111 100%);
+    border: 1px solid rgba(201,168,76,0.18);
+    border-radius: 2rem;
+    padding: 3.5rem 4rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .endorsement-card:hover {
+    border-color: rgba(201,168,76,0.35);
+    box-shadow: 0 0 48px rgba(201,168,76,0.08), 0 20px 60px rgba(0,0,0,0.5);
+  }
+  @media (max-width: 640px) {
+    .endorsement-card { padding: 2rem 1.75rem; }
+  }
+  .endorsement-accent {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.6), transparent);
+  }
+  .endorsement-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.25rem, 2.8vw, 1.75rem);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.65;
+    letter-spacing: -0.015em;
+    color: #f0ede6;
+    max-width: 780px;
+    margin-bottom: 1.5rem;
+  }
+  .endorsement-cite {
+    font-size: 0.85rem;
+    font-style: normal;
+    color: rgba(240,237,230,0.4);
+    letter-spacing: 0.04em;
+  }
+
+  /* ─── REVEAL (FIXED — no invisible gaps on load) ─────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity  0.65s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── REDUCE MOTION ──────────────────────────────────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    .h-badge-dot,
+    .scroll-cue-line,
+    .hero-h1,
+    .hero-bg-radial,
+    .hero-grid-overlay,
+    .orb,
+    .passage,
+    .p,
+    .h-anim-1, .h-anim-2, .h-anim-3, .h-anim-4, .h-anim-5 {
+      animation: none !important;
+      transition: none !important;
+    }
+    .reveal {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>
