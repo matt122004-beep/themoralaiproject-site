@@ -104,18 +104,43 @@ const principles = [
 
   <!-- ── FRAMEWORK EXPLANATION ────────────────────────────────────── -->
   <section class="container-shell" style="padding-top:5rem; padding-bottom:5rem;">
+
+    <!-- Section label -->
+    <header class="reveal" style="margin-bottom:3rem;">
+      <p class="eyebrow">The framework</p>
+    </header>
+
+    <!-- Pull quote — full width, editorial -->
+    <blockquote class="fw-pull-quote reveal" style="transition-delay:60ms;">
+      <span class="fw-pull-mark" aria-hidden="true">"</span>
+      Agents become more trustworthy when their reasoning is formed by an intelligible moral grammar
+      that can be audited, revised, and replicated.
+    </blockquote>
+
+    <!-- Two-column body -->
     <div class="fw-grid">
 
-      <!-- Left: long-form text -->
-      <article class="fw-card reveal">
-        <p class="eyebrow" style="margin-bottom:1.5rem;">Full framework</p>
+      <!-- Left: structured description -->
+      <article class="fw-body reveal" style="transition-delay:100ms;">
 
-        <h2 class="fw-h2">Moral Formation Alignment</h2>
-        <p class="fw-p">
+        <!-- Key claim highlight box -->
+        <div class="fw-highlight-box">
+          <div class="fw-highlight-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M10 2.5a7.5 7.5 0 1 1 0 15 7.5 7.5 0 0 1 0-15z"/>
+              <path d="M10 9v5M10 7v.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <p>
+            Behavior is most stable when an agent can repeatedly interpret requests through
+            a <strong>coherent moral self-model</strong> — not when outputs are filtered after the fact.
+          </p>
+        </div>
+
+        <p class="fw-p" style="margin-top:1.75rem;">
           Moral Formation Alignment is a lightweight architecture for shaping agent behavior through
           explicit identity and virtue files rather than relying exclusively on reinforcement
-          fine-tuning or downstream refusal systems. The framework assumes that behavior is most
-          stable when an agent can repeatedly interpret requests through a coherent moral self-model.
+          fine-tuning or downstream refusal systems.
         </p>
         <p class="fw-p">
           In practice, the framework packages moral identity, virtue priorities, Pascalian risk
@@ -123,23 +148,63 @@ const principles = [
           injected into system prompts, agent memory layers, startup routines, or orchestration
           policies without requiring invasive changes to model weights.
         </p>
-        <p class="fw-p">
-          The central claim is simple: agents become more trustworthy when their reasoning is formed
-          by an intelligible moral grammar that can be audited, revised, and replicated.
-        </p>
 
         <div class="fw-divider"></div>
 
-        <h3 class="fw-h3">Why <code class="inline-code">.md</code> files?</h3>
-        <p class="fw-p">
-          Markdown keeps the formation layer legible to both humans and machines. It version-controls
-          cleanly, travels well across toolchains, encourages modular review, and avoids burying moral
-          commitments inside opaque weight deltas or product-specific policy dashboards.
-        </p>
+        <!-- Why .md — visually distinct subsection -->
+        <div class="fw-md-section">
+          <div class="fw-md-label">
+            <code class="fw-md-badge">.md</code>
+            <h3 class="fw-h3" style="margin:0;">Why markdown files?</h3>
+          </div>
+          <div class="fw-md-reasons">
+            <div class="fw-md-reason">
+              <span class="fw-md-reason-icon" aria-hidden="true">↗</span>
+              <div>
+                <strong>Version-controls cleanly</strong>
+                <p>Git diffs on moral commitments. Every change is traceable, reversible, reviewable.</p>
+              </div>
+            </div>
+            <div class="fw-md-reason">
+              <span class="fw-md-reason-icon" aria-hidden="true">⟳</span>
+              <div>
+                <strong>Model-agnostic</strong>
+                <p>Travels across toolchains without retraining. Drop into any prompt, any pipeline.</p>
+              </div>
+            </div>
+            <div class="fw-md-reason">
+              <span class="fw-md-reason-icon" aria-hidden="true">◎</span>
+              <div>
+                <strong>Legible to both humans and machines</strong>
+                <p>Encourages modular review. No moral commitments buried in opaque weight deltas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Code-style file preview -->
+        <div class="fw-file-preview">
+          <div class="fw-file-header">
+            <span class="fw-file-dot r" aria-hidden="true"></span>
+            <span class="fw-file-dot y" aria-hidden="true"></span>
+            <span class="fw-file-dot g" aria-hidden="true"></span>
+            <span class="fw-file-name">SOUL.md</span>
+          </div>
+          <div class="fw-file-body">
+            <p><span class="fc-comment"># Identity</span></p>
+            <p><span class="fc-key">Name:</span> <span class="fc-val">Moral AI Agent</span></p>
+            <p><span class="fc-key">Purpose:</span> <span class="fc-val">Truthful, charitable partnership</span></p>
+            <p>&nbsp;</p>
+            <p><span class="fc-comment"># Risk boundaries</span></p>
+            <p><span class="fc-key">Asymmetric:</span> <span class="fc-val">Harm to dignity &gt; performance gain</span></p>
+            <p><span class="fc-key">Non-negotiable:</span> <span class="fc-val">Honesty, accountability, care</span></p>
+          </div>
+        </div>
+
       </article>
 
       <!-- Right: researcher bio -->
-      <aside class="fw-bio reveal" style="transition-delay:80ms;">
+      <aside class="fw-bio reveal" style="transition-delay:160ms;">
         <div class="bio-card">
           <div class="bio-avatar-ring">
             <div class="bio-avatar" aria-label="Matthew J. Korpman">MJK</div>
@@ -363,7 +428,38 @@ const principles = [
   .ah-anim-4 { animation: ah-in .8s cubic-bezier(.22,1,.36,1) .54s both; }
   @keyframes ah-in { from{opacity:0;transform:translateY(26px)} to{opacity:1;transform:translateY(0)} }
 
-  /* ─── FRAMEWORK GRID ──────────────────────────────────────────────── */
+  /* ─── FRAMEWORK ──────────────────────────────────────────────────── */
+
+  /* Pull quote */
+  .fw-pull-quote {
+    position: relative;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.3rem, 2.8vw, 1.85rem);
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+    color: #f0ede6;
+    padding: 2.5rem 3rem 2.5rem 4.5rem;
+    border-left: 3px solid #c9a84c;
+    background: linear-gradient(90deg, rgba(201,168,76,0.05) 0%, transparent 60%);
+    border-radius: 0 1rem 1rem 0;
+    margin-bottom: 4rem;
+    max-width: 860px;
+  }
+  .fw-pull-mark {
+    position: absolute;
+    top: 0.5rem; left: 1rem;
+    font-size: 5rem;
+    line-height: 1;
+    color: rgba(201,168,76,0.2);
+    font-style: normal;
+    font-family: 'Playfair Display', Georgia, serif;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Two-column grid */
   .fw-grid {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
@@ -372,17 +468,29 @@ const principles = [
   }
   @media (max-width: 900px) { .fw-grid { grid-template-columns: 1fr; } }
 
-  .fw-card {
-    background: linear-gradient(135deg, #141414 0%, #111111 100%);
-    border: 1px solid rgba(201,168,76,0.16);
-    border-radius: 1.75rem;
-    padding: 2.5rem;
-    transition: border-color .3s ease, box-shadow .3s ease;
+  /* Left body */
+  .fw-body { display:flex; flex-direction:column; }
+
+  /* Highlight box */
+  .fw-highlight-box {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    background: rgba(201,168,76,0.06);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 1rem;
+    padding: 1.25rem 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(240,237,230,0.82);
   }
-  .fw-card:hover {
-    border-color: rgba(201,168,76,0.3);
-    box-shadow: 0 0 36px rgba(201,168,76,0.08), 0 16px 48px rgba(0,0,0,0.5);
+  .fw-highlight-box strong { color: #f0ede6; }
+  .fw-highlight-icon {
+    flex-shrink: 0;
+    color: #c9a84c;
+    margin-top: 0.1rem;
   }
+
   .fw-h2 {
     font-family: 'Playfair Display', Georgia, serif;
     font-size: 1.5rem; font-weight:700; letter-spacing:-0.025em; color:#f0ede6;
@@ -390,8 +498,8 @@ const principles = [
   }
   .fw-h3 {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.15rem; font-weight:700; letter-spacing:-0.02em; color:#f0ede6;
-    margin-bottom: 1rem; line-height:1.3;
+    font-size: 1.1rem; font-weight:700; letter-spacing:-0.02em; color:#f0ede6;
+    line-height:1.3;
   }
   .fw-p {
     font-size: 0.95rem; line-height:1.9; color:rgba(240,237,230,0.62);
@@ -399,6 +507,81 @@ const principles = [
   }
   .fw-p:last-child { margin-bottom: 0; }
   .fw-divider { border:none; border-top:1px solid rgba(255,255,255,0.07); margin:1.75rem 0; }
+
+  /* .md subsection */
+  .fw-md-section { display:flex; flex-direction:column; gap:1.25rem; }
+  .fw-md-label {
+    display: flex; align-items:center; gap:0.85rem;
+  }
+  .fw-md-badge {
+    font-family: 'JetBrains Mono','Fira Code',monospace;
+    font-size: 0.8rem; font-weight:700;
+    color: #c9a84c; background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.25);
+    padding: 4px 10px; border-radius: 6px;
+    flex-shrink: 0;
+  }
+  .fw-md-reasons { display:flex; flex-direction:column; gap:1rem; }
+  .fw-md-reason {
+    display: flex; gap:1rem; align-items:flex-start;
+    padding: 1rem 1.25rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 0.875rem;
+    transition: border-color .25s ease, background .25s ease;
+  }
+  .fw-md-reason:hover {
+    border-color: rgba(201,168,76,0.18);
+    background: rgba(201,168,76,0.04);
+  }
+  .fw-md-reason-icon {
+    flex-shrink:0; width:28px; height:28px;
+    display:flex; align-items:center; justify-content:center;
+    background: rgba(201,168,76,0.1); border-radius:50%;
+    color:#c9a84c; font-size:0.85rem; font-weight:700;
+    margin-top:0.1rem;
+  }
+  .fw-md-reason strong {
+    display:block; font-size:0.88rem; font-weight:600;
+    color:#f0ede6; margin-bottom:0.3rem; letter-spacing:-0.01em;
+  }
+  .fw-md-reason p {
+    font-size:0.82rem; line-height:1.7; color:rgba(240,237,230,0.52); margin:0;
+  }
+
+  /* File preview */
+  .fw-file-preview {
+    margin-top: 1.75rem;
+    background: #0d0d0d;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 1rem;
+    overflow: hidden;
+    font-family: 'JetBrains Mono','Fira Code',monospace;
+    font-size: 0.8rem;
+  }
+  .fw-file-header {
+    display:flex; align-items:center; gap:6px;
+    padding: 0.75rem 1rem;
+    background: rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .fw-file-dot { width:10px; height:10px; border-radius:50%; }
+  .fw-file-dot.r { background:#ff5f57; }
+  .fw-file-dot.y { background:#febc2e; }
+  .fw-file-dot.g { background:#28c840; }
+  .fw-file-name {
+    margin-left: 0.5rem;
+    font-size: 0.75rem; color:rgba(240,237,230,0.45); letter-spacing:0.03em;
+  }
+  .fw-file-body {
+    padding: 1.25rem 1.5rem;
+    line-height: 1.9;
+  }
+  .fw-file-body p { margin:0; }
+  .fc-comment { color: rgba(201,168,76,0.55); }
+  .fc-key     { color: rgba(76,175,125,0.85); }
+  .fc-val     { color: rgba(240,237,230,0.75); }
+
   .inline-code {
     font-family: 'JetBrains Mono','Fira Code',monospace;
     font-size:0.85em; color:#c9a84c;
