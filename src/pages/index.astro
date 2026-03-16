@@ -28,9 +28,31 @@ const problems = [
 
   <!-- ── HERO ────────────────────────────── -->
   <section class="hero-grid-bg min-h-[92vh] flex flex-col justify-center" style="position:relative; overflow:hidden;">
-    <!-- Floating orbs -->
+    <!-- Layer 0: Energy passages -->
+    <div class="energy-passage top-rail" aria-hidden="true"></div>
+    <div class="energy-passage top-rail-2" aria-hidden="true"></div>
+    <div class="energy-passage bot-rail" aria-hidden="true"></div>
+    <div class="energy-passage bot-rail-2" aria-hidden="true"></div>
+
+    <!-- Layer 1: Light rays -->
+    <div class="light-rays" aria-hidden="true"></div>
+
+    <!-- Layer 2: Stage leader -->
+    <div class="stage-leader" aria-hidden="true"></div>
+
+    <!-- Layer 3: Floating orbs -->
     <div class="orb orb-gold" aria-hidden="true"></div>
     <div class="orb orb-green" aria-hidden="true"></div>
+
+    <!-- Layer 4: Particle dust -->
+    <div class="particle particle-gold s-1" aria-hidden="true"></div>
+    <div class="particle particle-gold s-2" aria-hidden="true"></div>
+    <div class="particle particle-green s-3" aria-hidden="true"></div>
+    <div class="particle particle-gold s-4" aria-hidden="true"></div>
+    <div class="particle particle-gold s-5" aria-hidden="true"></div>
+    <div class="particle particle-green s-6" aria-hidden="true"></div>
+    <div class="particle particle-gold s-7" aria-hidden="true"></div>
+    <div class="particle particle-gold s-8" aria-hidden="true"></div>
 
     <div class="container-shell hero-content py-20 md:py-28">
       <div class="grid items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
@@ -60,13 +82,13 @@ const problems = [
           </p>
 
           <div class="mt-10 flex flex-col gap-4 sm:flex-row hero-animate-5">
-            <span class="button-primary-disabled" aria-disabled="true">
+            <span class="button-primary-disabled" aria-disabled="true" style="transform: none;">
               <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" style="flex-shrink:0">
                 <path d="M8 1a3 3 0 0 0-3 3v1H3.5A1.5 1.5 0 0 0 2 6.5v7A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 12.5 5H11V4a3 3 0 0 0-3-3zm0 1.5a1.5 1.5 0 0 1 1.5 1.5v1h-3V4A1.5 1.5 0 0 1 8 2.5z"/>
               </svg>
               Files Coming Soon
             </span>
-            <a href={`${import.meta.env.BASE_URL}research/`} class="button-secondary">Read the Research</a>
+            <a href={`${import.meta.env.BASE_URL}research/`} class="magnetic-secondary button-secondary">Read the Research</a>
           </div>
         </div>
 
