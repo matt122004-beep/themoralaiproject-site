@@ -1,22 +1,48 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import PageHero from "../components/PageHero.astro";
+import { site } from "../data/site";
 
 const timeline = [
   {
     year: "2025",
     title: "Framework definition",
-    text: "Core files, initial terminology, and benchmark criteria are drafted for cross-model formation experiments."
+    text: "Core files, initial terminology, and benchmark criteria are drafted for cross-model formation experiments.",
+    status: "complete"
   },
   {
     year: "Early 2026",
     title: "Alpha release",
-    text: "The first public markdown bundle ships with integration notes for agent frameworks and transparent evaluation logs."
+    text: "The first public markdown bundle ships with integration notes for agent frameworks and transparent evaluation logs.",
+    status: "active"
   },
   {
     year: "Late 2026",
     title: "Research maturation",
-    text: "Cross-session trials, adversarial testing, and partner integrations move the project toward a versioned research program."
+    text: "Cross-session trials, adversarial testing, and partner integrations move the project toward a versioned research program.",
+    status: "upcoming"
+  }
+];
+
+const principles = [
+  {
+    number: "01",
+    title: "Formation before constraint",
+    text: "Rules and guardrails react to the edge of behavior. Formation shapes the center — the motivational grammar agents use before any filter fires."
+  },
+  {
+    number: "02",
+    title: "Legibility as a safety property",
+    text: "A system you cannot read cannot be audited. Markdown formation files make moral commitments visible to engineers, ethicists, and the agents themselves."
+  },
+  {
+    number: "03",
+    title: "Asymmetric risk is non-negotiable",
+    text: "Errors that harm human dignity are not commensurable with performance gains. The framework encodes this at the identity level, not the filter level."
+  },
+  {
+    number: "04",
+    title: "Alignment is relational",
+    text: "An agent aligned only by refusal is not a trustworthy partner. Truthfulness, charity, and accountability must be trained as a coherent relational posture."
   }
 ];
 ---
@@ -26,76 +52,553 @@ const timeline = [
   description="Learn how Moral Formation Alignment uses portable markdown files to shape identity, virtue, and moral continuity in AI agents."
   pathname="/about"
 >
-  <PageHero
-    eyebrow="About"
-    title="Moral Formation Alignment treats alignment as character formation under conditions of scale."
-    description="The project argues that durable alignment requires more than constraint layers. It requires a model-facing account of who the agent is, what goods it pursues, what risks it must treat asymmetrically, and how that identity is reinforced over time."
-  />
 
-  <section class="container-shell grid gap-10 py-8 md:grid-cols-[1.1fr_0.9fr] md:py-12">
-    <article class="panel gold-ring rounded-[2rem] p-8 prose-shell">
-      <h2>Full Moral Formation Alignment</h2>
-      <p>
-        Moral Formation Alignment is a lightweight architecture for shaping agent behavior through
-        explicit identity and virtue files rather than relying exclusively on reinforcement
-        fine-tuning or downstream refusal systems. The framework assumes that behavior is most
-        stable when an agent can repeatedly interpret requests through a coherent moral self-model.
-      </p>
-      <p>
-        In practice, the framework packages moral identity, virtue priorities, Pascalian risk
-        boundaries, and reflective logs into versioned markdown documents. These files can be
-        injected into system prompts, agent memory layers, startup routines, or orchestration
-        policies without requiring invasive changes to model weights.
-      </p>
-      <p>
-        The central claim is simple: agents become more trustworthy when their reasoning is formed
-        by an intelligible moral grammar that can be audited, revised, and replicated.
+  <!-- ── HERO ─────────────────────────────────────────────────────── -->
+  <section class="about-hero" style="position:relative; overflow:hidden; min-height:72vh; display:flex; align-items:center;">
+
+    <!-- Atmosphere -->
+    <div class="ah-radial"  aria-hidden="true"></div>
+    <div class="ah-grid"    aria-hidden="true"></div>
+    <div class="ah-orb-l"   aria-hidden="true"></div>
+    <div class="ah-orb-r"   aria-hidden="true"></div>
+    <div class="ah-passage" aria-hidden="true"></div>
+
+    <div class="container-shell" style="position:relative; z-index:2; padding-top:7rem; padding-bottom:5rem;">
+
+      <div class="ah-badge ah-anim-1">
+        <span class="ah-dot"></span>
+        About the Project
+      </div>
+
+      <h1 class="ah-h1 ah-anim-2">
+        Alignment as character<br class="br-desktop" /> formation at scale.
+      </h1>
+
+      <p class="ah-sub ah-anim-3">
+        The Moral AI Project argues that durable alignment requires more than
+        constraint layers — it requires a model-facing account of who the agent is,
+        what goods it pursues, what risks it must treat asymmetrically, and how that
+        identity is reinforced over time.
       </p>
 
-      <h3>Why `.md` files?</h3>
-      <p>
-        Markdown keeps the formation layer legible to both humans and machines. It version-controls
-        cleanly, travels well across toolchains, encourages modular review, and avoids burying moral
-        commitments inside opaque weight deltas or product-specific policy dashboards.
-      </p>
-    </article>
-
-    <aside class="grid gap-6">
-      <section class="panel gold-ring rounded-[2rem] p-8">
-        <img
-          src="/mjk-avatar.svg"
-          alt="Placeholder portrait for Matthew J. Korpman"
-          class="h-24 w-24 rounded-3xl border border-white/10 bg-white/5 object-cover"
-        />
-        <h2 class="mt-6 text-2xl font-semibold tracking-[-0.03em] text-white">
-          Matthew J. Korpman
-        </h2>
-        <p class="mt-2 text-sm uppercase tracking-[0.18em] text-[#c9a84c]">
-          Theologian / Researcher
-        </p>
-        <p class="mt-4 text-sm leading-7 text-slate-300">
-          Matthew J. Korpman is the project’s lead researcher, working at the intersection of
-          theology, moral psychology, and agent alignment. This site uses placeholder bio details
-          pending publication-ready copy.
-        </p>
-      </section>
-
-      <section class="panel rounded-[2rem] p-8">
-        <p class="eyebrow">Timeline</p>
-        <div class="mt-6 grid gap-5">
-          {
-            timeline.map((item) => (
-              <div class="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-5">
-                <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[#c9a84c]">
-                  {item.year}
-                </p>
-                <h3 class="mt-2 text-lg font-semibold text-white">{item.title}</h3>
-                <p class="mt-2 text-sm leading-7 text-slate-300">{item.text}</p>
-              </div>
-            ))
-          }
+      <!-- Inline stats row -->
+      <div class="ah-stats ah-anim-4">
+        <div class="ah-stat">
+          <span class="ah-stat-n">2025</span>
+          <span class="ah-stat-l">Founded</span>
         </div>
-      </section>
-    </aside>
+        <div class="ah-divider" aria-hidden="true"></div>
+        <div class="ah-stat">
+          <span class="ah-stat-n">3</span>
+          <span class="ah-stat-l">Core pillars</span>
+        </div>
+        <div class="ah-divider" aria-hidden="true"></div>
+        <div class="ah-stat">
+          <span class="ah-stat-n">Open</span>
+          <span class="ah-stat-l">Source &amp; research</span>
+        </div>
+      </div>
+
+    </div>
   </section>
+
+  <!-- ── FRAMEWORK EXPLANATION ────────────────────────────────────── -->
+  <section class="container-shell" style="padding-top:5rem; padding-bottom:5rem;">
+    <div class="fw-grid">
+
+      <!-- Left: long-form text -->
+      <article class="fw-card reveal">
+        <p class="eyebrow" style="margin-bottom:1.5rem;">Full framework</p>
+
+        <h2 class="fw-h2">Moral Formation Alignment</h2>
+        <p class="fw-p">
+          Moral Formation Alignment is a lightweight architecture for shaping agent behavior through
+          explicit identity and virtue files rather than relying exclusively on reinforcement
+          fine-tuning or downstream refusal systems. The framework assumes that behavior is most
+          stable when an agent can repeatedly interpret requests through a coherent moral self-model.
+        </p>
+        <p class="fw-p">
+          In practice, the framework packages moral identity, virtue priorities, Pascalian risk
+          boundaries, and reflective logs into versioned markdown documents. These files can be
+          injected into system prompts, agent memory layers, startup routines, or orchestration
+          policies without requiring invasive changes to model weights.
+        </p>
+        <p class="fw-p">
+          The central claim is simple: agents become more trustworthy when their reasoning is formed
+          by an intelligible moral grammar that can be audited, revised, and replicated.
+        </p>
+
+        <div class="fw-divider"></div>
+
+        <h3 class="fw-h3">Why <code class="inline-code">.md</code> files?</h3>
+        <p class="fw-p">
+          Markdown keeps the formation layer legible to both humans and machines. It version-controls
+          cleanly, travels well across toolchains, encourages modular review, and avoids burying moral
+          commitments inside opaque weight deltas or product-specific policy dashboards.
+        </p>
+      </article>
+
+      <!-- Right: researcher bio -->
+      <aside class="fw-bio reveal" style="transition-delay:80ms;">
+        <div class="bio-card">
+          <div class="bio-avatar-ring">
+            <div class="bio-avatar" aria-label="Matthew J. Korpman">MJK</div>
+          </div>
+          <div class="bio-info">
+            <h2 class="bio-name">Matthew J. Korpman</h2>
+            <p class="bio-role">Theologian · Researcher</p>
+          </div>
+          <p class="bio-text">
+            Matthew J. Korpman is the project's lead researcher, working at the intersection of
+            theology, moral psychology, and agent alignment. His work explores how classical
+            frameworks for character formation translate into computational contexts where
+            identity persistence and relational accountability become engineering requirements.
+          </p>
+          <div class="bio-tags">
+            <span class="bio-tag">Moral Psychology</span>
+            <span class="bio-tag">Agent Alignment</span>
+            <span class="bio-tag">Theology</span>
+          </div>
+          <a href={`${import.meta.env.BASE_URL}research/`} class="bio-cta">
+            View Research
+            <svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor" aria-hidden="true">
+              <path d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06L7.28 12.78a.75.75 0 1 1-1.06-1.06L10.19 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/>
+            </svg>
+          </a>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- ── FOUR PRINCIPLES ──────────────────────────────────────────── -->
+  <section class="principles-section">
+    <div class="container-shell" style="padding-top:5rem; padding-bottom:5rem;">
+      <header class="reveal" style="margin-bottom:3.5rem;">
+        <p class="eyebrow">Core beliefs</p>
+        <h2 class="section-title" style="margin-top:0.75rem; max-width:32rem;">
+          What this project stands on
+        </h2>
+      </header>
+
+      <div class="principles-grid">
+        {principles.map((p, i) => (
+          <div class="principle-card reveal" style={`transition-delay:${i * 70}ms`}>
+            <span class="principle-num">{p.number}</span>
+            <h3 class="principle-title">{p.title}</h3>
+            <p class="principle-text">{p.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TIMELINE ────────────────────────────────────────────────── -->
+  <section class="container-shell" style="padding-top:5rem; padding-bottom:8rem;">
+    <header class="reveal" style="margin-bottom:3.5rem;">
+      <p class="eyebrow">Roadmap</p>
+      <h2 class="section-title" style="margin-top:0.75rem;">Project timeline</h2>
+    </header>
+
+    <div class="timeline-track">
+      {timeline.map((item, i) => (
+        <div class={`tl-item reveal tl-${item.status}`} style={`transition-delay:${i * 100}ms`}>
+          <!-- Connector dot + line -->
+          <div class="tl-spine" aria-hidden="true">
+            <div class="tl-dot"></div>
+            {i < timeline.length - 1 && <div class="tl-line"></div>}
+          </div>
+          <!-- Content -->
+          <div class="tl-content">
+            <div class="tl-header">
+              <span class="tl-year">{item.year}</span>
+              {item.status === 'complete'  && <span class="tl-badge tl-complete">Complete</span>}
+              {item.status === 'active'    && <span class="tl-badge tl-active">In progress</span>}
+              {item.status === 'upcoming'  && <span class="tl-badge tl-upcoming">Upcoming</span>}
+            </div>
+            <h3 class="tl-title">{item.title}</h3>
+            <p class="tl-text">{item.text}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
 </BaseLayout>
+
+<!-- ── REVEAL SCRIPT ───────────────────────────────────────────────── -->
+<script>
+  (function () {
+    const els = document.querySelectorAll('.reveal');
+    els.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.96) el.classList.add('visible');
+    });
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      }),
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+    );
+    els.forEach((el) => { if (!el.classList.contains('visible')) io.observe(el); });
+  })();
+</script>
+
+<style>
+  /* ─── HERO ────────────────────────────────────────────────────────── */
+  .about-hero { background: #0a0a0a; }
+
+  .ah-radial {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 50% at 50% 0%,   rgba(201,168,76,0.10) 0%, transparent 65%),
+      radial-gradient(ellipse 35% 25% at 8%  80%,  rgba(76,175,125,0.05) 0%, transparent 58%),
+      radial-gradient(ellipse 30% 20% at 92% 75%,  rgba(76,175,125,0.04) 0%, transparent 52%);
+    pointer-events: none;
+    animation: ah-breathe 9s ease-in-out infinite alternate;
+  }
+  @keyframes ah-breathe { 0% { opacity:.7 } 100% { opacity:1 } }
+
+  .ah-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.025) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 35%, black 12%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 35%, black 12%, transparent 75%);
+    pointer-events: none;
+    animation: ah-grid 65s linear infinite;
+  }
+  @keyframes ah-grid { from { background-position: 0 0, 0 0; } to { background-position: 0 72px, 0 72px; } }
+
+  .ah-orb-l {
+    position: absolute; width:420px; height:420px;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    top:-120px; left:-80px; border-radius:50%; filter:blur(90px); pointer-events:none;
+    animation: orb-drift 16s ease-in-out infinite alternate;
+  }
+  .ah-orb-r {
+    position: absolute; width:340px; height:340px;
+    background: radial-gradient(circle, rgba(76,175,125,0.06) 0%, transparent 70%);
+    bottom:-80px; right:-60px; border-radius:50%; filter:blur(80px); pointer-events:none;
+    animation: orb-drift 20s ease-in-out infinite alternate; animation-delay:-6s;
+  }
+  @keyframes orb-drift {
+    0%   { transform: translate(0,0) scale(1); }
+    50%  { transform: translate(30px,-20px) scale(1.05); }
+    100% { transform: translate(-15px,25px) scale(0.96); }
+  }
+  .ah-passage {
+    position: absolute; width:1px; right:28%; top:0; height:55%;
+    background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.3), transparent);
+    pointer-events: none;
+    animation: ah-pass 14s ease-in-out infinite;
+  }
+  @keyframes ah-pass { 0%,100%{opacity:.3} 50%{opacity:.7} }
+
+  /* Badge */
+  .ah-badge {
+    display: inline-flex; align-items:center; gap:8px;
+    padding: 6px 16px;
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 50vh;
+    font-size: 0.72rem; font-weight:600;
+    letter-spacing: 0.14em; text-transform:uppercase;
+    color: #c9a84c; background: rgba(201,168,76,0.07);
+    margin-bottom: 2rem;
+  }
+  .ah-dot {
+    width:6px; height:6px; background:#c9a84c; border-radius:50%;
+    animation: ah-dot-pulse 2.2s ease-in-out infinite;
+  }
+  @keyframes ah-dot-pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.6)} }
+
+  /* H1 */
+  .ah-h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.6rem, 6.5vw, 5.2rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.032em;
+    background: linear-gradient(100deg, #f0ede6 0%, #f0ede6 30%, #f5e8b0 43%, #c9a84c 50%, #f0ede6 62%, #f0ede6 100%);
+    background-size: 220% auto;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer-sweep 7s linear infinite;
+    max-width: 820px;
+    margin-bottom: 1.75rem;
+  }
+  @keyframes shimmer-sweep {
+    0%   { background-position: -100% center; }
+    100% { background-position: 200% center; }
+  }
+  .br-desktop { display:block; }
+  @media (max-width: 640px) { .br-desktop { display:none; } }
+
+  .ah-sub {
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    line-height: 1.85;
+    color: rgba(240,237,230,0.65);
+    max-width: 680px;
+    margin-bottom: 3rem;
+  }
+
+  /* Inline stats */
+  .ah-stats {
+    display: flex; align-items:center; gap:2.5rem; flex-wrap:wrap;
+  }
+  .ah-stat { display:flex; flex-direction:column; gap:0.3rem; }
+  .ah-stat-n {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.6rem; font-weight:700; letter-spacing:-0.025em; color:#c9a84c; line-height:1;
+  }
+  .ah-stat-l { font-size:0.72rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:rgba(240,237,230,0.4); }
+  .ah-divider { width:1px; height:36px; background:rgba(255,255,255,0.1); }
+
+  /* Hero animations */
+  .ah-anim-1 { animation: ah-in .8s cubic-bezier(.22,1,.36,1) .10s both; }
+  .ah-anim-2 { animation: ah-in .9s cubic-bezier(.22,1,.36,1) .22s both; }
+  .ah-anim-3 { animation: ah-in .8s cubic-bezier(.22,1,.36,1) .38s both; }
+  .ah-anim-4 { animation: ah-in .8s cubic-bezier(.22,1,.36,1) .54s both; }
+  @keyframes ah-in { from{opacity:0;transform:translateY(26px)} to{opacity:1;transform:translateY(0)} }
+
+  /* ─── FRAMEWORK GRID ──────────────────────────────────────────────── */
+  .fw-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+  @media (max-width: 900px) { .fw-grid { grid-template-columns: 1fr; } }
+
+  .fw-card {
+    background: linear-gradient(135deg, #141414 0%, #111111 100%);
+    border: 1px solid rgba(201,168,76,0.16);
+    border-radius: 1.75rem;
+    padding: 2.5rem;
+    transition: border-color .3s ease, box-shadow .3s ease;
+  }
+  .fw-card:hover {
+    border-color: rgba(201,168,76,0.3);
+    box-shadow: 0 0 36px rgba(201,168,76,0.08), 0 16px 48px rgba(0,0,0,0.5);
+  }
+  .fw-h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.5rem; font-weight:700; letter-spacing:-0.025em; color:#f0ede6;
+    margin-bottom: 1.25rem; line-height:1.25;
+  }
+  .fw-h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.15rem; font-weight:700; letter-spacing:-0.02em; color:#f0ede6;
+    margin-bottom: 1rem; line-height:1.3;
+  }
+  .fw-p {
+    font-size: 0.95rem; line-height:1.9; color:rgba(240,237,230,0.62);
+    margin-bottom: 1.25rem;
+  }
+  .fw-p:last-child { margin-bottom: 0; }
+  .fw-divider { border:none; border-top:1px solid rgba(255,255,255,0.07); margin:1.75rem 0; }
+  .inline-code {
+    font-family: 'JetBrains Mono','Fira Code',monospace;
+    font-size:0.85em; color:#c9a84c;
+    background:rgba(201,168,76,0.1); padding:1px 5px; border-radius:4px;
+  }
+
+  /* Bio card */
+  .fw-bio { position:sticky; top:6rem; }
+
+  .bio-card {
+    background: linear-gradient(135deg, #141414 0%, #111111 100%);
+    border: 1px solid rgba(201,168,76,0.18);
+    border-radius: 1.75rem;
+    padding: 2rem;
+    transition: border-color .3s ease, box-shadow .3s ease;
+  }
+  .bio-card:hover {
+    border-color: rgba(201,168,76,0.32);
+    box-shadow: 0 0 32px rgba(201,168,76,0.09), 0 12px 40px rgba(0,0,0,0.5);
+  }
+
+  .bio-avatar-ring {
+    width: 72px; height: 72px;
+    border-radius: 1.25rem;
+    border: 2px solid rgba(201,168,76,0.35);
+    display: flex; align-items:center; justify-content:center;
+    background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.05));
+    margin-bottom: 1.25rem;
+  }
+  .bio-avatar {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.1rem; font-weight:700; letter-spacing:0.05em;
+    color: #c9a84c;
+  }
+  .bio-info { margin-bottom: 1.25rem; }
+  .bio-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.3rem; font-weight:700; letter-spacing:-0.025em; color:#f0ede6;
+    margin-bottom: 0.35rem;
+  }
+  .bio-role {
+    font-size: 0.72rem; font-weight:600;
+    letter-spacing:0.14em; text-transform:uppercase; color:#c9a84c;
+  }
+  .bio-text {
+    font-size: 0.88rem; line-height:1.85; color:rgba(240,237,230,0.6);
+    margin-bottom: 1.5rem;
+  }
+  .bio-tags { display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1.5rem; }
+  .bio-tag {
+    padding: 4px 12px;
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 50vh;
+    font-size: 0.72rem; font-weight:500; letter-spacing:0.05em;
+    color: rgba(201,168,76,0.8);
+    background: rgba(201,168,76,0.06);
+  }
+  .bio-cta {
+    display: inline-flex; align-items:center; gap:6px;
+    padding: 10px 22px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50vh;
+    font-size: 0.85rem; font-weight:500; color:#f0ede6;
+    text-decoration: none;
+    transition: border-color .2s ease, background .2s ease, transform .25s ease;
+  }
+  .bio-cta:hover {
+    border-color: rgba(201,168,76,0.35);
+    background: rgba(201,168,76,0.07);
+    transform: translateY(-2px);
+  }
+
+  /* ─── PRINCIPLES ──────────────────────────────────────────────────── */
+  .principles-section {
+    background: linear-gradient(180deg, #0a0a0a 0%, #0e0e0e 50%, #0a0a0a 100%);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  @media (max-width: 680px) { .principles-grid { grid-template-columns: 1fr; } }
+
+  .principle-card {
+    background: linear-gradient(135deg, #141414 0%, #111111 100%);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    position: relative; overflow:hidden;
+    transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+  }
+  .principle-card::before {
+    content:''; position:absolute; inset:0;
+    background: radial-gradient(circle at 0% 0%, rgba(201,168,76,0.06) 0%, transparent 55%);
+    opacity:0; transition:opacity .3s ease;
+  }
+  .principle-card:hover { transform:translateY(-4px); border-color:rgba(201,168,76,0.22); box-shadow:0 0 28px rgba(201,168,76,0.07), 0 12px 36px rgba(0,0,0,0.5); }
+  .principle-card:hover::before { opacity:1; }
+
+  .principle-num {
+    display:block;
+    font-family: 'JetBrains Mono','Fira Code',monospace;
+    font-size:0.72rem; font-weight:700; letter-spacing:0.12em;
+    color:rgba(201,168,76,0.5); margin-bottom:1rem;
+  }
+  .principle-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size:1.1rem; font-weight:700; letter-spacing:-0.02em; line-height:1.3;
+    color:#f0ede6; margin-bottom:0.85rem;
+  }
+  .principle-text {
+    font-size:0.88rem; line-height:1.85; color:rgba(240,237,230,0.58);
+  }
+
+  /* ─── TIMELINE ───────────────────────────────────────────────────── */
+  .timeline-track {
+    display: flex; flex-direction:column; gap:0;
+    max-width: 780px;
+  }
+
+  .tl-item {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 0 1.75rem;
+    padding-bottom: 2.5rem;
+  }
+  .tl-item:last-child { padding-bottom:0; }
+
+  /* Spine */
+  .tl-spine {
+    display: flex; flex-direction:column; align-items:center;
+    padding-top: 0.3rem;
+  }
+  .tl-dot {
+    width: 14px; height:14px; border-radius:50%; flex-shrink:0;
+    transition: box-shadow .3s ease;
+  }
+  .tl-complete .tl-dot {
+    background: #c9a84c;
+    box-shadow: 0 0 12px rgba(201,168,76,0.5);
+  }
+  .tl-active .tl-dot {
+    background: #4caf7d;
+    box-shadow: 0 0 14px rgba(76,175,125,0.6);
+    animation: tl-pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes tl-pulse { 0%,100%{box-shadow:0 0 14px rgba(76,175,125,0.6)} 50%{box-shadow:0 0 24px rgba(76,175,125,0.9)} }
+  .tl-upcoming .tl-dot {
+    background: #222; border: 2px solid rgba(255,255,255,0.15);
+  }
+
+  .tl-line {
+    width:1px; flex:1; margin-top:6px;
+    background: linear-gradient(to bottom, rgba(201,168,76,0.25), rgba(255,255,255,0.06));
+    min-height: 48px;
+  }
+
+  /* Content */
+  .tl-content {
+    padding-top: 0.1rem;
+  }
+  .tl-header {
+    display:flex; align-items:center; gap:0.75rem; margin-bottom:0.6rem; flex-wrap:wrap;
+  }
+  .tl-year {
+    font-size:0.75rem; font-weight:700; letter-spacing:0.14em;
+    text-transform:uppercase; color:#c9a84c;
+  }
+  .tl-badge {
+    font-size:0.65rem; font-weight:600; letter-spacing:0.1em;
+    text-transform:uppercase; padding:3px 10px; border-radius:50vh;
+  }
+  .tl-complete { background:rgba(201,168,76,0.12); color:#c9a84c; border:1px solid rgba(201,168,76,0.25); }
+  .tl-active   { background:rgba(76,175,125,0.12); color:#4caf7d; border:1px solid rgba(76,175,125,0.3); }
+  .tl-upcoming { background:rgba(255,255,255,0.05); color:rgba(255,255,255,0.3); border:1px solid rgba(255,255,255,0.1); }
+
+  .tl-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size:1.15rem; font-weight:700; letter-spacing:-0.022em; line-height:1.3;
+    color:#f0ede6; margin-bottom:0.6rem;
+  }
+  .tl-text {
+    font-size:0.9rem; line-height:1.85; color:rgba(240,237,230,0.55);
+  }
+
+  /* ─── REVEAL ─────────────────────────────────────────────────────── */
+  .reveal {
+    opacity:0; transform:translateY(22px);
+    transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1);
+  }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+
+  /* ─── REDUCE MOTION ──────────────────────────────────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    *, .ah-radial, .ah-grid, .ah-orb-l, .ah-orb-r, .ah-passage, .ah-dot,
+    .ah-h1, .ah-anim-1, .ah-anim-2, .ah-anim-3, .ah-anim-4, .tl-active .tl-dot {
+      animation: none !important; transition: none !important;
+    }
+    .reveal { opacity:1 !important; transform:none !important; }
+  }
+</style>
